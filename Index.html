@@ -1,0 +1,170 @@
+<html>
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9edf0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .form-group input, .form-group select {
+            width: calc(100% - 40px);
+            padding: 10px;
+            padding-left: 40px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .form-group .remember-me {
+            display: flex;
+            align-items: center;
+        }
+        .form-group .remember-me input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .form-group .remember-me label {
+            margin: 0;
+        }
+        .form-group .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .form-group .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .form-group .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-group .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent form submission
+    
+                const name = document.querySelector('input[placeholder="Name"]').value;
+                const email = document.querySelector('input[placeholder="Email"]').value;
+                const mobile = document.querySelector('input[placeholder="Enter Mobile Number"]').value;
+                const password = document.querySelector('input[placeholder="Password"]').value;
+                const confirmPassword = document.querySelector('input[placeholder="confirm Password"]').value;
+    
+                if (!name || !email || !mobile || !password || !confirmPassword) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+    
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match.");
+                    return;
+                }
+    
+                // Store user data in local storage (for demo purposes)
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+    
+                alert("Account created successfully! You can now log in.");
+                window.location.href = 'login.html'; // Redirect to login page
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img alt="Logo" height="80" src="logo.png" width="80"/>
+        <h2>Create Account</h2>
+        <div class="form-group">
+            <input type="text" placeholder="Name">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Enter Mobile Number">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="confirm Password">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="form-group">
+            <label>Select Gender</label>
+            <select>
+                <option>Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Enter Your Church Code">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="form-group remember-me">
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe">Remember Me</label>
+        </div>
+        <div class="form-group">
+            <button class="submit-btn">Submit</button>
+        </div>
+        <div class="form-group login-link">
+            <p>Already have an account?</p>
+            <a href="./login.html">Click to Login Here</a>
+        </div>
+    </div>
+</body>
+</html>

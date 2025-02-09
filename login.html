@@ -1,0 +1,165 @@
+<html>
+ <head>
+  <title>
+   Login Page
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9eef3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-container img {
+            width: 80px;
+            height: 80px;
+            margin-top: -40px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+        .login-container h1 {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: 700;
+        }
+        .login-container p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .login-container .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .login-container .input-group input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        .login-container .input-group .input-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        .login-container .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .login-container .remember-me input {
+            margin-right: 10px;
+        }
+        .login-container .remember-me label {
+            margin: 0;
+        }
+        .login-container .login-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .login-container .login-btn:hover {
+            background-color: #0056b3;
+        }
+        .login-container .links {
+            margin-top: 20px;
+        }
+        .login-container .links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .login-container .links a:hover {
+            text-decoration: underline;
+        }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginBtn = document.querySelector('.login-btn');
+        loginBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+
+            if (!email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Mock login process
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+
+            if (email === storedEmail && password === storedPassword) {
+                window.location.href = 'welcome.html'; // Redirect to welcome page
+            } else {
+                alert("Invalid email or password.");
+            }
+        });
+    });
+</script>
+ </head>
+ <body>
+  <div class="login-container">
+   <img alt="Logo" height="80" src="logo.png" width="80"/>
+   <h1>
+    Login
+   </h1>
+   <p>
+    Sign in to start your session
+   </p>
+   <div class="input-group">
+    <input placeholder="Email" type="email"/>
+    <i class="fas fa-envelope input-icon">
+    </i>
+   </div>
+   <div class="input-group">
+    <input placeholder="Password" type="password"/>
+    <i class="fas fa-lock input-icon">
+    </i>
+   </div>
+   <div class="remember-me">
+    <input id="remember" type="checkbox"/>
+    <label for="remember">
+     Remember Me
+    </label>
+   </div>
+   <button class="login-btn">
+    Login
+   </button>
+   <div class="links">
+    <p>
+     Don't have an account?
+     <a href="./Index.html">
+      Create Account here
+     </a>
+    </p>
+    <p>
+     <a href="#">
+      I forgot my password
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>
